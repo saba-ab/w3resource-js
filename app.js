@@ -171,5 +171,21 @@ function guessNumberGame() {
   checkNumber.classList.add("check-button");
   checkNumber.textContent = "CHECK";
   guessNumberContainer.appendChild(checkNumber);
+  const randomNumber = (Math.random() * 10).toFixed();
+  if (randomNumber === "0") {
+    return randomNumber + 1;
+  }
+  const result = document.createElement("p");
+  result.classList.add("guess-result");
+  result.textContent = "click to check";
+  guessNumberContainer.appendChild(result);
+  checkNumber.addEventListener("click", () => {
+    const guess = inputNumber.value.toString();
+    if (guess === randomNumber) {
+      result.textContent = "Good Work";
+    } else {
+      result.textContent = "Not matched";
+    }
+  });
 }
 guessNumberGame();
