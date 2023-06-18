@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5%;
+}
+
+.guess-number-container {
+  width: 500px;
+  border: 1px solid #150347;
+  background-color: #754aee;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  border-radius: 30px;
+  font-family: "Courier New", Courier, monospace;
+}
+.input-number {
+  width: 40%;
+  height: 40px;
+  font-size: 22px;
+  text-align: center;
+}
+.check-button {
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #150347;
+  color: white;
+  cursor: pointer;
+}
+.check-button:hover {
+  scale: 1.1;
+}

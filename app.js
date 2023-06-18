@@ -40,6 +40,7 @@ function printCurrentWindow() {
 
 function getCurrentDate() {
   const months = [
+    "December",
     "January",
     "February",
     "March",
@@ -51,11 +52,10 @@ function getCurrentDate() {
     "September",
     "October",
     "November",
-    "December",
   ];
   const date = new Date();
   const day = date.getDate();
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const monthConverted = month < 10 && month.toString().padStart(2, "0");
   const year = date.getFullYear();
   const dateInArr = [day, monthConverted, year];
@@ -91,3 +91,85 @@ console.log(triangleArea);
 // Write a JavaScript program to rotate the string 'w3resource' in the right direction.
 // This is done by periodically removing one letter from the string end and attaching
 //it to the front.
+
+function rotateString(text) {
+  const length = text.length;
+  setInterval(() => {
+    const lastCharacter = text[length - 1];
+    const leastCharacters = text.substring(0, length - 1);
+    text = lastCharacter + leastCharacters;
+    console.log(text);
+  }, 100);
+}
+// rotateString("some random text ");
+
+// 6
+//Write a JavaScript program to determine whether a given
+//year is a leap year in the Gregorian calendar.
+
+function detectLeapYear(year) {
+  const date = new Date(`${year}-02-29`);
+  const days = date.getDate();
+  const leapYear = days === 29 ? `It is leap year` : `It is not leap year`;
+  return leapYear;
+}
+const leapYear = detectLeapYear(2023);
+console.log(leapYear);
+
+// 7
+//Write a JavaScript program to find out if
+//1st January will be a Sunday between 2014 and 2050.
+function isSunday(startYear, endYear) {
+  const result = [];
+
+  for (let i = startYear; i < endYear; i++) {
+    const year = i;
+    year.toString();
+    const dates = [];
+    const date = new Date(`${year}-01-01`);
+    dates.push(date);
+    dates.forEach((date) => {
+      const year = date.getFullYear();
+      const day = date.getDay();
+      const sunday = day === 0 && `${year} year 1 january is sunday`;
+      result.push(sunday);
+    });
+  }
+  const filteredResult = result.filter((sunday) => {
+    return sunday !== false;
+  });
+  return filteredResult;
+}
+const sunday = isSunday(2014, 2051);
+console.log(sunday);
+
+// 8
+//Write a JavaScript program where the program takes a
+//random integer between 1 and 10, and the user is then
+//prompted to input a guess number.The program displays a
+// message "Good Work" if the input matches the guess number
+//otherwise "Not matched"
+const mainContainer = document.createElement("div");
+mainContainer.classList.add("main-container");
+document.body.appendChild(mainContainer);
+function guessNumberGame() {
+  const guessNumberContainer = document.createElement("div");
+  guessNumberContainer.classList.add("guess-number-container");
+  mainContainer.appendChild(guessNumberContainer);
+  const guessNumberHeader = document.createElement("h2");
+  const guessNumberHint = document.createElement("p");
+
+  guessNumberHeader.textContent = "Guess the number game";
+  guessNumberHint.textContent = "Enter number between 1 and 10";
+  guessNumberContainer.appendChild(guessNumberHeader);
+  guessNumberContainer.appendChild(guessNumberHint);
+  const inputNumber = document.createElement("input");
+  inputNumber.setAttribute("type", "number");
+  inputNumber.classList.add("input-number");
+  guessNumberContainer.appendChild(inputNumber);
+  const checkNumber = document.createElement("button");
+  checkNumber.classList.add("check-button");
+  checkNumber.textContent = "CHECK";
+  guessNumberContainer.appendChild(checkNumber);
+}
+guessNumberGame();
