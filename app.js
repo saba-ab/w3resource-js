@@ -189,3 +189,45 @@ function guessNumberGame() {
   });
 }
 guessNumberGame();
+
+// 9
+// Write a JavaScript program to calculate the days left before Christmas.
+function daysLeftBeforeChristmas() {
+  const months = {
+    january: 31,
+    february: 28,
+    march: 31,
+    april: 30,
+    may: 31,
+    june: 30,
+    july: 31,
+    august: 31,
+    september: 30,
+    october: 31,
+    november: 30,
+  };
+  const date = new Date();
+  const ChristmasDate = new Date(`${date.getFullYear()}-12-25`);
+  const currentMonth = date.getMonth();
+  const ChristmasMonth = ChristmasDate.getMonth();
+  const currentDay = date.getDate();
+  const ChristmasDay = ChristmasDate.getDate();
+
+  const monthsLeft = ChristmasMonth - currentMonth;
+  const daysLeft = ChristmasDay - currentDay;
+
+  let monthsLeftIf = Number;
+  let daysLeftIf = Number;
+  let result = `days left before christmas`;
+  console.log(Object.values(months)[currentMonth]);
+  if (currentDay > ChristmasDay) {
+    monthsLeftIf = monthsLeft - 1;
+    daysLeftIf = Object.values(months)[currentMonth] + daysLeft;
+    result = `${monthsLeftIf} months and ${daysLeftIf} days left before christmas`;
+  } else {
+    result = `${monthsLeft} months and ${daysLeft} days left before christmas`;
+  }
+  return result;
+}
+const christmas = daysLeftBeforeChristmas();
+console.log(christmas);
