@@ -231,3 +231,27 @@ function daysLeftBeforeChristmas() {
 }
 const christmas = daysLeftBeforeChristmas();
 console.log(christmas);
+
+// 10
+//Write a JavaScript program to calculate multiplication and division
+//of two numbers(input from the user).
+
+const calculator = () => {
+  const container = document.createElement("div");
+  container.classList.add("calculator");
+  mainContainer.appendChild(container);
+  container.innerHTML = `<div class="result-area">
+    <p class="result"></p>
+    <p class="preview"></p>
+  </div> <div class="calculator-area">
+  <div>AC</div><div>+/-</div><div>%</div><div>/</div><div>7</div><div>8</div><div>9</div><div>x</div><div>4</div><div>5</div><div>6</div><div>-</div><div>1</div><div>2</div><div>3</div><div>+</div><div>R</div><div>0</div><div>.</div><div>=</div>
+  </div>`;
+  const result = document.querySelector(".result");
+  const preview = document.querySelector(".preview");
+  const calculatorArea = document.querySelector(".calculator-area");
+  console.log(typeof calculatorArea.children);
+  // calculatorArea.forEach((sym) => {
+  //   console.log(sym);
+  // });
+};
+calculator();
